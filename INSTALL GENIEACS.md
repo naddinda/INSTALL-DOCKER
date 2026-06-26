@@ -92,5 +92,16 @@ Langkah - langkah install genieacs:
 volumes:
   mongo_data:
   redis_data:
-5. sudo docker compose up -d
-6. sudo docker ps
+5. Jalankan seluruh layanan (service) GenieACS di latar belakang (background) menggunakan Docker. Jalankan perintah:
+
+   📝sudo docker compose up -d > enter (jika tidak ada error lanjut ke langkah berikutnya)
+6. Cek status kontainer yang sedang berjalan.
+
+   📝sudo docker ps > enter
+7. Buka browser > ketik http://IP_Server_Ubuntu:3000 (contoh http://192.168.115.2:3000) > enter
+8. Jika berhasil masuk ke halaman GenieACS, klik ABRACADABRA
+9. Masukkan username dan password yang otomatis diberi oleh GenieACS
+
+   📝Username: admin
+   📝Password: admin
+10. Setelah memasukkan username dan password muncul dashbord GenieACS. Maka sudah berhasil install GenieACS on Docker
