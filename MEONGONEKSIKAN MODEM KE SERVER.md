@@ -45,15 +45,19 @@ Lagkah - langkah mengoneksikan modem ke server:
    
        VLAN ID     514
 
-       Username: ngopi
+       Service List: TR069_VOIP_INTERNET
+
+       Username: acs-pkl
    
-       Password: ngopi
+       Password: acs-pkl
 
        Port Binding ✅LAN1  ✅LAN2  ✅LAN3  ✅LAN4
    
                      ✅SSID1
 
        Jika sudah selesai disetting klik create
+   e. Masih di menu Network > WLAN > setiing pada Authentication Type: Open System > submit
+   f. 
 
 
 
