@@ -57,7 +57,12 @@ Lagkah - langkah mengoneksikan modem ke server:
 
        Jika sudah selesai disetting klik create
    e. Masih di menu Network > WLAN > setiing pada Authentication Type: Open System > submit
-   f. 
+   
+   f. Kembali ke dashbord, pilih menu status > interface network
+
+       📄Jika Ip address dan DNS sudah ada IP dan Connected maka setting modem telah berhasil.
+
+   g. Buka aplikasi speedtest > mulai > akan muncul redaman maupun Mbps nya
 
 
 
