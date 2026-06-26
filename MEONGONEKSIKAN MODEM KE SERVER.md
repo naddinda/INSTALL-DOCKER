@@ -62,7 +62,10 @@ Lagkah - langkah mengoneksikan modem ke server:
 
        📄pastikan Ip address dan DNS sudah ada IP dan Connected.
    g. Buka aplikasi speedtest > mulai > akan muncul redaman maupun Mbps nya. Setting modem telah berhasil
-3. Buka aplikasi Winbox, pada halaman login winbox pilih 
+3. Buka aplikasi Winbox, pada halaman login winbox masukkan IP yang terhubung ke port ONT (contoh: 103.134.220.123:12500) > connect
+4. Pilih menu PPP > Active Connections > ketik "acs-pkl" pada kolom pencarian > klik 2 kali > copy paste IP Addnya di browser > enter
+5. Setelah masuk ke halaman login setting modem masukkan username dan passwordnya > login
+6. Pilih menu administration > TR09 > 
 
 
 
