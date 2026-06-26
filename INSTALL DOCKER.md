@@ -10,12 +10,18 @@ Langkah - langkah install docker
    📝curl -fsSL https://get.docker.com -o get-docker.sh > enter
 3. Memastikan status file skrip installer Docker yang baru saja diunduh telah tersedia di server ubuntu. Ketik perintah:
 
-   📝ls -l > enter
+   📝ls-l > enter
 
    jika installasi berhasil maka akan muncul seperti ini
 
    📄 -rw-r--r-- 1 root root 22446 Jun 19 06:22 get-docker.sh
-4. 
+4.  Untuk memulai proses instalasi otomatis Docker, masukkan perintah:
+
+       📝sudo sh get-docker.sh > enter
+
+5. Untuk mengecek dan memastikan apakah aplikasi Docker sudah sukses terpasang di komputer, sekaligus melihat detail versi lengkap yang digunakan oleh bagian client maupun server Docker. Ketik perintah:
+
+   📝docker version
 
    
 
