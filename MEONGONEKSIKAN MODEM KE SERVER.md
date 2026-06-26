@@ -62,6 +62,7 @@ Lagkah - langkah mengoneksikan modem ke server:
 
        📄pastikan Ip address dan DNS sudah ada IP dan Connected.
    g. Buka aplikasi speedtest > mulai > akan muncul redaman maupun Mbps nya. Setting modem telah berhasil
+3. Buka aplikasi Winbox, pada halaman login winbox pilih 
 
 
 
