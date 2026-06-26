@@ -60,9 +60,8 @@ Lagkah - langkah mengoneksikan modem ke server:
    
    f. Kembali ke dashbord, pilih menu status > interface network
 
-       📄Jika Ip address dan DNS sudah ada IP dan Connected maka setting modem telah berhasil.
-
-   g. Buka aplikasi speedtest > mulai > akan muncul redaman maupun Mbps nya
+       📄pastikan Ip address dan DNS sudah ada IP dan Connected.
+   g. Buka aplikasi speedtest > mulai > akan muncul redaman maupun Mbps nya. Setting modem telah berhasil
 
 
 
