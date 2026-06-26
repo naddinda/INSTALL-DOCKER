@@ -21,7 +21,12 @@ Langkah - langkah install docker
 
 5. Untuk mengecek dan memastikan apakah aplikasi Docker sudah sukses terpasang di komputer, sekaligus melihat detail versi lengkap yang digunakan oleh bagian client maupun server Docker. Ketik perintah:
 
-   📝docker version
+   📝docker version > enter
+6. Uji apakah instalasi Docker sudah berjalan dengan benar dan siap digunakan. Ketik perintah:
+
+   📝docker run hello-world > enter
+
+   📄Jika melihat ada pesan "Hello from Docker" itu berarti docker sudah terinstall dan berjalan dengan benar. Jika hasilnya sudah seperti itu berarti telah berhasil install docker di ubuntu server.
 
    
 
