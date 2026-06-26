@@ -17,81 +17,145 @@ Langkah - langkah install genieacs:
 4. Ketik teks di bawah ini di terminal GNU
 
    services:
+   
   mongo:
+  
     image: mongo:4.4
+    
     container_name: genieacs-mongodb
+    
     restart: always
+    
     volumes:
+    
       - mongo_data:/data/db
 
   redis:
+  
     image: redis:7.0-alpine
+    
     container_name: genieacs-redis
+    
     restart: always
+    
     volumes:
+    
       - redis_data:/data
 
   genieacs-cwmp:
+  
     build: .
+    
     container_name: genieacs-cwmp
+    
     restart: always
+    
     environment:
+    
       - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongo:27017/genieacs
+      
       - GENIEACS_REDIS_CONNECTION_URL=redis://redis:6379/0
+      
     ports:
+    
       - "7547:7547"
+      
     depends_on:
+    
       - mongo
+      
       - redis
+      
     command: genieacs-cwmp
 
   genieacs-nbi:
+  
     build: .
+    
     container_name: genieacs-nbi
+    
     restart: always
+    
     environment:
+    
       - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongo:27017/genieacs
+      
       - GENIEACS_REDIS_CONNECTION_URL=redis://redis:6379/0
+      
     ports:
+    
       - "7557:7557"
+      
     depends_on:
+    
       - mongo
+      
       - redis
+      
     command: genieacs-nbi
 
   genieacs-fs:
+  
     build: .
+    
     container_name: genieacs-fs
+    
     restart: always
+    
     environment:
+    
       - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongo:27017/genieacs
+      
       - GENIEACS_REDIS_CONNECTION_URL=redis://redis:6379/0
+      
     ports:
+    
       - "7567:7567"
+      
     depends_on:
+    
       - mongo
+      
       - redis
+      
     command: genieacs-fs
 
   genieacs-ui:
+  
     build: .
+    
     container_name: genieacs-ui
+    
     restart: always
+    
     environment:
+    
       - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongo:27017/genieacs
+      
       - GENIEACS_REDIS_CONNECTION_URL=redis://redis:6379/0
+      
       - GENIEACS_UI_JWT_SECRET=rahasiasangat-aman-123
+      
       - GENIEACS_UI_USERS=${GENIEACS_UI_USERS}
+      
     ports:
+    
       - "3000:3000"
+      
     depends_on:
+    
       - mongo
+      
       - redis
+      
     command: genieacs-ui
 
 volumes:
+
   mongo_data:
+  
   redis_data:
+  
 5. Jalankan seluruh layanan (service) GenieACS di latar belakang (background) menggunakan Docker. Jalankan perintah:
 
    📝sudo docker compose up -d > enter (jika tidak ada error lanjut ke langkah berikutnya)
