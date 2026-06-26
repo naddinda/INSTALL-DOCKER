@@ -15,6 +15,7 @@ Langkah - langkah install docker
    jika installasi berhasil maka akan muncul seperti ini
 
    📄 -rw-r--r-- 1 root root 22446 Jun 19 06:22 get-docker.sh
+4. 
 
    
 
