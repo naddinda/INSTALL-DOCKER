@@ -52,73 +52,74 @@ Langkah - langkah menambahkan parameter modem ke virtual parameters agar modem y
 
         Name : rx_power
         Script : 
-const now = Date.now();
-
-let ProductClass = declare("DeviceID.ProductClass", {value: 1}).value[0];
-let signal = "N/A";
-
-switch (ProductClass) {
-  case "F663NV3*":
-    signal = declare("InternetGatewayDevice.WANDevice.*.X_CMCC_GponInterfaceConfig.RXPower",{value: 1}).value[0];
-    break;
-  default:
-    let d = declare("InternetGatewayDevice.WANDevice.*.X_CMCC_GponInterfaceConfig.RXPower",{value: 1}).value[0];
-    signal = Math.ceil(10 * Math.log10(d / 10000)).toString();
-    break;
-}
-
-return {writable: false, value: [signal, 'xsd:string']};
+         const now = Date.now();
+         
+         let ProductClass = declare("DeviceID.ProductClass", {value: 1}).value[0];
+         
+         let signal = "N/A";
+         
+         switch (ProductClass) {
+           case "F663NV3*":
+             signal = declare("InternetGatewayDevice.WANDevice.*.X_CMCC_GponInterfaceConfig.RXPower",{value: 1}).value[0];
+             break;
+           default:
+             let d = declare("InternetGatewayDevice.WANDevice.*.X_CMCC_GponInterfaceConfig.RXPower",{value: 1}).value[0];
+             signal = Math.ceil(10 * Math.log10(d / 10000)).toString();
+             break;
+         }
+         
+         return {writable: false, value: [signal, 'xsd:string']};
 klik save.
 
     b. yang kedua klik new
         Name : uptime
         Script : 
-const now = Date.now();
-
-let r1 = declare("InternetGatewayDevice.DeviceInfo.UpTime", {value: 1});
-let r2 = declare("Device.DeviceInfo.UpTime", {value: 1});
-
-let s = (r1 && r1.size > 0) ? r1.value[0] : ((r2 && r2.size > 0) ? r2.value[0] : 0);
-if (!s) return {writable: false, value: ["N/A", 'xsd:string']};
-
-let d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
-let hasil = (d > 0 ? d + "d " : "") + (h > 0 ? h + "h " : "") + m + "m";
-
-return {writable: false, value: [hasil, 'xsd:string']};
+         const now = Date.now();
+         
+         let r1 = declare("InternetGatewayDevice.DeviceInfo.UpTime", {value: 1});
+         let r2 = declare("Device.DeviceInfo.UpTime", {value: 1});
+         
+         let s = (r1 && r1.size > 0) ? r1.value[0] : ((r2 && r2.size > 0) ? r2.value[0] : 0);
+         if (!s) return {writable: false, value: ["N/A", 'xsd:string']};
+         
+         let d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+         let hasil = (d > 0 ? d + "d " : "") + (h > 0 ? h + "h " : "") + m + "m";
+         
+         return {writable: false, value: [hasil, 'xsd:string']};
 klik save.
 
     c. yang ketiga klik new
         Name : Secreat PPPoE
         Script :
-const now = Date.now();
-
-let ProductClass = declare("DeviceID.ProductClass", {value: 1}).value[0];
-let pppoe_user = "N/A";
-
-if (/F663NV3*|F663NV9/i.test(ProductClass)) {
-    let res = declare("InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANPPPConnection.*.Username", {value: 1});
-
-    if (res && res.size > 0) { 
-        pppoe_user = res.value[0];    }
-}
-
-return {writable: false, value: [pppoe_user, 'xsd:string']}; 
+         const now = Date.now();
+         
+         let ProductClass = declare("DeviceID.ProductClass", {value: 1}).value[0];
+         let pppoe_user = "N/A";
+         
+         if (/F663NV3*|F663NV9/i.test(ProductClass)) {
+             let res = declare("InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANPPPConnection.*.Username", {value: 1});
+         
+             if (res && res.size > 0) { 
+                 pppoe_user = res.value[0];    }
+         }
+         
+         return {writable: false, value: [pppoe_user, 'xsd:string']}; 
 klik save.
 
     d. yang keempat klik new
         Name : 	IP WAN/TR069
         Script :
-const now = Date.now();
-
-let r1 = declare("InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANPPPConnection.*.ExternalIPAddress", {value: 1});
-let r2 = declare("InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANPPPConnection.*.ExternalIPAddress", {value: 1});
-let r3 = declare("Device.IP.Interface.*.IPv4Address.*.IPAddress", {value: 1});
-
-let ip = (r1 && r1.size > 0 && r1.value[0] !== "0.0.0.0") ? r1.value[0] : 
-         ((r2 && r2.size > 0 && r2.value[0] !== "0.0.0.0") ? r2.value[0] : 
-         ((r3 && r3.size > 0) ? r3.value[0] : "N/A"));
-
-return {writable: false, value: [ip, 'xsd:string']};
+         const now = Date.now();
+         
+         let r1 = declare("InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANPPPConnection.*.ExternalIPAddress", {value: 1});
+         let r2 = declare("InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANPPPConnection.*.ExternalIPAddress", {value: 1});
+         let r3 = declare("Device.IP.Interface.*.IPv4Address.*.IPAddress", {value: 1});
+         
+         let ip = (r1 && r1.size > 0 && r1.value[0] !== "0.0.0.0") ? r1.value[0] : 
+                  ((r2 && r2.size > 0 && r2.value[0] !== "0.0.0.0") ? r2.value[0] : 
+                  ((r3 && r3.size > 0) ? r3.value[0] : "N/A"));
+         
+         return {writable: false, value: [ip, 'xsd:string']};
 klik save.
 
 2. Agar genieACS dapat membaca parameters modem yang berbeda, buka tab admin > config > edit index page
@@ -178,31 +179,19 @@ Teks yang di tambahkan:
 Jadi scriptnya akan seperti ini :
 
     parameters:
-      - InternetGatewayDevice.DeviceInfo.HardwareVersion
-      
-      - InternetGatewayDevice.DeviceInfo.SoftwareVersion
-      
-      - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.MACAddress
-      
-      - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.ExternalIPAddress
-      
-      - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.SSID
-      
-      - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.KeyPassphrase
-      
-      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.HostName
-      
-      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.IPAddress
-      
-      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.MACAddress
-      
-      - VirtualParameters.rx_power
-      
-      - VirtualParameters.secreat_PPPoE
-      
-      - VirtualParameters.uptime
-      
-      - VirtualParameters.IPWAN_TR09
+         - InternetGatewayDevice.DeviceInfo.HardwareVersion
+         - InternetGatewayDevice.DeviceInfo.SoftwareVersion
+         - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.MACAddress
+         - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.ExternalIPAddress
+         - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.SSID
+         - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.KeyPassphrase
+         - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.HostName
+         - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.IPAddress
+         - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.MACAddress
+         - VirtualParameters.rx_power
+         - VirtualParameters.secreat_PPPoE
+         - VirtualParameters.uptime
+         - VirtualParameters.IPWAN_TR09
 
 *Pastikan nama virtual parameter yang ditulis setelah VirtualParameters.**** sama dengan nama saat membuat virtual parameters
 
