@@ -1,6 +1,9 @@
 Setelah install genieACS, selanjutnya  lengkapi menu parameters seperti Tag, Action, Status, SSID, RXPower, Uptime, Secreat PPPoE, IP WAN/TR069, SN ONT, PON Type
+
 Langkah - langkah menambahkan menu parameters:
+
 1. Buka web genieACS, pilih menu admin > config > edit index page
+   
 2. Pada jendela index page masukkan perintah yang ingin ditampilkan pada halaman device, contoh:
 
 - label: "'Tag'"
@@ -19,13 +22,13 @@ Langkah - langkah menambahkan menu parameters:
 - label: "'SSID'"
   parameter: InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.SSID
 - label: "'RXPower'"
-  parameter: VirtualParameters.rx_power
+  parameter: InternetGatewayDevice.WANDevice.1.X_CMCC_GponInterfaceConfig.RXPower
 - label: "'Uptime'"
-  parameter: VirtualParameters.uptime
+  parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.Uptime
 - label: "'Secreat PPPoE'"
-  parameter: VirtualParameters.secreat_PPPoE
+  parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.Username
 - label: "'IP WAN/TR069'"
-  parameter: VirtualParameters.IPWAN_TR09
+  parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.ExternalIPAddress
 - label: "'SN ONT'"
   parameter: DeviceID.SerialNumber
 - label: "'PON Type'"
@@ -116,3 +119,32 @@ let ip = (r1 && r1.size > 0 && r1.value[0] !== "0.0.0.0") ? r1.value[0] :
          ((r3 && r3.size > 0) ? r3.value[0] : "N/A"));
 
 return {writable: false, value: [ip, 'xsd:string']};
+klik save.
+
+2. Agar genieACS dapat membaca parameters modem yang berbeda, buka tab admin > config > edit index page
+   
+   pada nama VirtualParameters.**** nama parameter setelah tanda titik menyesuaikan nama yang dimasukkan saat membuat virtual parameters tadi, yaitu:
+   
+   a. yang pertama pada label : RXPower ubah parameternya menjadi VirtualParameters.rx_power
+   
+       - label: "'RXPower'"
+   
+         parameter: VirtualParameters.rx_power
+   b. yang kedua pada label : Uptime ubah parameternya menjadi VirtualParameters.uptime
+
+       - label: "'Uptime'"
+   
+         parameter: VirtualParameters.uptime
+   c. yang ketiga pada label : Secreat PPPoE ubah parameternya menjadi VirtualParameters.secreat_PPPoE
+
+        - label: "'Secreat PPPoE'"
+   
+         parameter: VirtualParameters.secreat_PPPoE
+   d. yang keempat pada label : IP WAN/TR069 ubah parameternya menjadi VirtualParameters.IPWAN_TR09
+
+        - label: "' IP WAN/TR069'"
+   
+         parameter: VirtualParameters.IPWAN_TR09
+   
+   
+
