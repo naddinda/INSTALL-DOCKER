@@ -149,14 +149,23 @@ klik save.
 
 Cari teks seperti ini, pada bagian bawah teks terakhir ini tambahkan virtual parameter yang sudah dibuat tadi.
     parameters:
+    
       - InternetGatewayDevice.DeviceInfo.HardwareVersion
+      
       - InternetGatewayDevice.DeviceInfo.SoftwareVersion
+      
       - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.MACAddress
+      
       - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.ExternalIPAddress
+      
       - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.SSID
+      
       - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.KeyPassphrase
+      
       - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.HostName
+      
       - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.IPAddress
+      
       - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.MACAddress
 
 Teks yang di tambahkan:
