@@ -193,9 +193,19 @@ Jadi scriptnya akan seperti ini :
          - VirtualParameters.uptime
          - VirtualParameters.IPWAN_TR09
 
-*Pastikan nama virtual parameter yang ditulis setelah VirtualParameters.**** sama dengan nama saat membuat virtual parameters
+*Pastikan nama virtual parameter yang ditulis setelah VirtualParameters.**** sama dengan nama saat membuat virtual parameters.
 
+4. Coba summon salah satu modem, akan muncul semua keterangan menu yang sudah ditambahkan parameternya.
 
+5. Jika salah satu modem ada yang belum bisa muncul parameternya, langkah - langkah sebagai berikut:
+
+   a. Show salah satu modem yang belum bisa muncul parameternya.
+   b. Scroll keatas, akan muncul All parameters
+   c. Pada kolom pencarian ketik "InternetGatewayDevice.WANDevice" > enter
+   d. Bagian kanan ada tombol refreash, klik resfreash lalu klik commit. Tunggu sampai "committed"
+   e. Scroll keatas, cari kata kunci di pencarian. Misal akan mencari secreat PPPoE berarti yang ditulis pada kolom pencarian yaitu "Username" > enter.
+   f. Jika pada sebelah kanan belum muncul username modem tersebut, klik icon refreash > commit. Tunggu hingga commited.
+   g. Setelah commited, kembali ke halaman devices awal, lihat modem yang sudah di summon dan di refreash tadi. Akan muncul Usernamenya.
 
    
    
