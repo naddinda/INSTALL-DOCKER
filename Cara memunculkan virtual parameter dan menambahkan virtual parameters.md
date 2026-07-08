@@ -145,6 +145,60 @@ klik save.
         - label: "' IP WAN/TR069'"
    
          parameter: VirtualParameters.IPWAN_TR09
+3. Kemudian agar modem ketika disummon dapat memunculkan keterangan pada menu yang telah ditambahkan parameternya, buka tab admin > config > edit device page.
+
+Cari teks seperti ini, pada bagian bawah teks terakhir ini tambahkan virtual parameter yang sudah dibuat tadi.
+    parameters:
+      - InternetGatewayDevice.DeviceInfo.HardwareVersion
+      - InternetGatewayDevice.DeviceInfo.SoftwareVersion
+      - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.MACAddress
+      - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.ExternalIPAddress
+      - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.SSID
+      - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.KeyPassphrase
+      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.HostName
+      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.IPAddress
+      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.MACAddress
+
+Teks yang di tambahkan:
+
+      - VirtualParameters.rx_power
+      - VirtualParameters.secreat_PPPoE
+      - VirtualParameters.uptime
+      - VirtualParameters.IPWAN_TR09
+
+Jadi scriptnya akan seperti ini :
+
+    parameters:
+      - InternetGatewayDevice.DeviceInfo.HardwareVersion
+      
+      - InternetGatewayDevice.DeviceInfo.SoftwareVersion
+      
+      - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.MACAddress
+      
+      - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.ExternalIPAddress
+      
+      - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.SSID
+      
+      - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.KeyPassphrase
+      
+      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.HostName
+      
+      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.IPAddress
+      
+      - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.MACAddress
+      
+      - VirtualParameters.rx_power
+      
+      - VirtualParameters.secreat_PPPoE
+      
+      - VirtualParameters.uptime
+      
+      - VirtualParameters.IPWAN_TR09
+
+*Pastikan nama virtual parameter yang ditulis setelah VirtualParameters.**** sama dengan nama saat membuat virtual parameters
+
+
+
    
    
 
