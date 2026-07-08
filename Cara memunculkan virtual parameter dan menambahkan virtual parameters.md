@@ -6,37 +6,37 @@ Langkah - langkah menambahkan menu parameters:
    
 2. Pada jendela index page masukkan perintah yang ingin ditampilkan pada halaman device, contoh:
 
-- label: "'Tag'"
-  parameter: Tags
-  type: "'tags'"
-- label: "'Action'"
-  type: "'summon-button'"
-- element: "'span.inform'"
-  label: "'Status'"
-  parameter: DATE_STRING(Events.Inform)
-  type: "'container'"
-  components:
-    - type: "'parameter'"
-    - chart: "'online'"
-      type: "'overview-dot'"
-- label: "'SSID'"
-  parameter: InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.SSID
-- label: "'RXPower'"
-  parameter: InternetGatewayDevice.WANDevice.1.X_CMCC_GponInterfaceConfig.RXPower
-- label: "'Uptime'"
-  parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.Uptime
-- label: "'Secreat PPPoE'"
-  parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.Username
-- label: "'IP WAN/TR069'"
-  parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.ExternalIPAddress
-- label: "'SN ONT'"
-  parameter: DeviceID.SerialNumber
-- label: "'PON Type'"
-  parameter: InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.WANAccessType
-  type: "'device-link'"
-  components:
-    - type: "'parameter'"
-- Parameter: VirtualParameter.GetPONMode
+         - label: "'Tag'"
+           parameter: Tags
+           type: "'tags'"
+         - label: "'Action'"
+           type: "'summon-button'"
+         - element: "'span.inform'"
+           label: "'Status'"
+           parameter: DATE_STRING(Events.Inform)
+           type: "'container'"
+           components:
+             - type: "'parameter'"
+             - chart: "'online'"
+               type: "'overview-dot'"
+         - label: "'SSID'"
+           parameter: InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.SSID
+         - label: "'RXPower'"
+           parameter: InternetGatewayDevice.WANDevice.1.X_CMCC_GponInterfaceConfig.RXPower
+         - label: "'Uptime'"
+           parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.Uptime
+         - label: "'Secreat PPPoE'"
+           parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.Username
+         - label: "'IP WAN/TR069'"
+           parameter: InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.4.ExternalIPAddress
+         - label: "'SN ONT'"
+           parameter: DeviceID.SerialNumber
+         - label: "'PON Type'"
+           parameter: InternetGatewayDevice.WANDevice.1.WANCommonInterfaceConfig.WANAccessType
+           type: "'device-link'"
+           components:
+             - type: "'parameter'"
+         - Parameter: VirtualParameter.GetPONMode
 
 klik save untuk menyimpan editan perintahnya.
 
