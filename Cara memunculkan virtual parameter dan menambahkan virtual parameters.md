@@ -4,13 +4,18 @@ Langkah - langkah menambahkan menu parameters:
 
 1. Buka web genieACS, pilih menu admin > config > edit index page
    
-2. Pada jendela index page masukkan perintah yang ingin ditampilkan pada halaman device, contoh:
+2. Pada jendela index page masukkan perintah yang ingin ditampilkan pada halaman devices, contoh:
 
          - label: "'Tag'"
            parameter: Tags
            type: "'tags'"
          - label: "'Action'"
            type: "'summon-button'"
+              parameters:
+                - InternetGatewayDevice.DeviceInfo.ModelName
+                - InternetGatewayDevice.DeviceInfo.SoftwareVersion
+                - InternetGatewayDevice.ManagementServer.ConnectionRequestURL
+                - InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection.1.ExternalIPAddress
          - element: "'span.inform'"
            label: "'Status'"
            parameter: DATE_STRING(Events.Inform)
